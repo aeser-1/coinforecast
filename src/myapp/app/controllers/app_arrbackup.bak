@@ -1,0 +1,38 @@
+package controllers
+
+import (
+	"github.com/revel/revel"
+	"dependency"
+)
+
+type App struct {
+	*revel.Controller
+}
+
+type Coin struct {
+	Name string ` json:"name" xml:"foo" `
+	Symbol string ` json:"sym" xml:"foo" `
+    Price float64 ` json:"price" xml:"bar" `
+}
+
+func (c App) Index() revel.Result {
+	return c.Render()
+}
+
+
+
+func (c App) Test() revel.Result {
+	data := make(map[string]interface{})
+	// greeting := "Aloha World"
+	price:=dependency.DBreadBTC(1)
+	coin := Coin{Name: "Bitcoin", Symbol: dependency.Symbol,Price: price[0]}
+	data["Bitcoin"] = coin
+	price2:=dependency.DBreadXRP(1)
+	coin2 := Coin{Name: "Ripple", Symbol: dependency.Symbol,Price: price2[0]}
+	data["Ripple"] = coin2
+	
+
+    return c.RenderJSON(data)
+	// return c.RenderJSON(greeting)
+}
+
