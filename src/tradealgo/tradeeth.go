@@ -9,17 +9,17 @@ import (
 )
 
 func ETHAlgo() {
-	var buy, sell, buyold, sellold bool
-	var emaold, smaold [2]float64
-	var high, low float64
-	ema := dependency.EMA(4, "ETH", true, 0)
-	sma := dependency.SMA(5, "ETH", true, 0)
-	_, stoc := dependency.STOC(40, 20, true, "ETH", true)
-	_, stoc1 := dependency.STOC(10, 5, true, "ETH", false)
-	_, stocd := dependency.STOCD(10, 5, true, "ETH", true)
-	boll := dependency.Bollinger(14, "ETH", 2.5, true)
-	bollsell := dependency.Bollinger(14, "ETH", 2, true)
-	trix := dependency.TRIX(30, "ETH", true)
+	
+	//Sample Strategy --> BCH
+	ema := dependency.EMA(10, "ETH", true, 0)
+	sma := dependency.SMA(10, "ETH", true, 0)
+	_, stoc := dependency.STOC(14, 6, true, "ETH", true)
+	_, stoc1 := dependency.STOC(14, 6, true, "ETH", false)
+	_, stocd := dependency.STOCD(14, 6, true, "ETH", true)
+	boll := dependency.Bollinger(12, "ETH", 2, true)
+	bollsell := dependency.Bollinger(12, "ETH", 2, true)
+	trix := dependency.TRIX(20, "ETH", true)
+	bchcurr := db.DBRead(1, "ETH")
 	ethcurr := db.DBRead(1, "ETH")
 
 	db := db.DBconn()
