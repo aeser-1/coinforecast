@@ -9,17 +9,17 @@ import (
 )
 
 func BTCAlgo() {
-	var buy, sell, buyold, sellold bool
-	var emaold, smaold [2]float64
-	var high, low float64
-	ema := dependency.EMA(4, "BTC", true, 0)
-	sma := dependency.SMA(5, "BTC", true, 0)
-	_, stoc := dependency.STOC(40, 10, true, "BTC", true)
-	stoc1, _ := dependency.STOC(15, 5, true, "BTC", false)
-	stocd, _ := dependency.STOCD(15, 5, true, "BTC", true)
-	boll := dependency.Bollinger(14, "BTC", 2.5, true)
-	bollsell := dependency.Bollinger(14, "BTC", 2, true)
-	trix := dependency.TRIX(30, "BTC", true)
+	
+	//Sample Strategy --> BCH
+	ema := dependency.EMA(10, "BTC", true, 0)
+	sma := dependency.SMA(10, "BTC", true, 0)
+	_, stoc := dependency.STOC(14, 6, true, "BTC", true)
+	_, stoc1 := dependency.STOC(14, 6, true, "BTC", false)
+	_, stocd := dependency.STOCD(14, 6, true, "BTC", true)
+	boll := dependency.Bollinger(12, "BTC", 2, true)
+	bollsell := dependency.Bollinger(12, "BTC", 2, true)
+	trix := dependency.TRIX(20, "BTC", true)
+	bchcurr := db.DBRead(1, "BTC")
 	btccurr := db.DBRead(1, "BTC")
 
 	db := db.DBconn()
