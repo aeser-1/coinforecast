@@ -10,7 +10,7 @@ import (
 
 func ETHAlgo() {
 	
-	//Sample Strategy --> BCH
+	//Sample Strategy --> ETH
 	ema := dependency.EMA(10, "ETH", true, 0)
 	sma := dependency.SMA(10, "ETH", true, 0)
 	_, stoc := dependency.STOC(14, 6, true, "ETH", true)
