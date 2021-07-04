@@ -10,7 +10,7 @@ import (
 
 func BTCAlgo() {
 	
-	//Sample Strategy --> BCH
+	//Sample Strategy --> BTH
 	ema := dependency.EMA(10, "BTC", true, 0)
 	sma := dependency.SMA(10, "BTC", true, 0)
 	_, stoc := dependency.STOC(14, 6, true, "BTC", true)
