@@ -207,7 +207,7 @@ func HandleRequest() error {
 	q := url.Values{}
 	q.Add("symbol", "BTC,ETH,XRP,BCH,LTC")
 	req.Header.Set("Accepts", "application/json")
-	req.Header.Add("X-CMC_PRO_API_KEY", "253cea06-75a0-4232-851e-17971de542a3")
+	req.Header.Add("X-CMC_PRO_API_KEY", "//***API Key***//")
 	req.URL.RawQuery = q.Encode()
 
 	Resp, err = client.Do(req)
